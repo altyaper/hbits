@@ -29,6 +29,7 @@ defmodule HbitsWeb.Router do
 
   scope "/", HbitsWeb do
     pipe_through [:browser, :protected]
+    resources "/habits", HabitController
     get "/", PageController, :index
   end
 
