@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :hbits, Hbits.Repo,
-  username: "perlaruiz",
-  password: "1234",
+  username: "postgres",
+  password: "postgres",
   database: "hbits_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
