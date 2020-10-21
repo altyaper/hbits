@@ -5,16 +5,16 @@ defmodule HbitsWeb.Pow.Mailer do
   use Pow.Phoenix.Mailer
   require Logger
 
+  @from Application.get_env(:hbits, :mailgun_from)
+
   @impl true
   def cast(%{user: user, subject: subject, text: text, html: html}) do
-    send_email to: user.email, from: "local@host.com", subject: subject, text: text
+    send_email to: user.email, from: @from, subject: subject, text: text
   end
 
   @impl true
   def process(email) do
     # Send email
-    IO.inspect(email)
-    IO.puts "Soooooooooooooooooooomething"
     Logger.debug("E-mail sent: #{inspect email}")
   end
 end

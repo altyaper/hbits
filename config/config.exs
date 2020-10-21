@@ -10,7 +10,8 @@ use Mix.Config
 config :hbits,
   ecto_repos: [Hbits.Repo],
   mailgun_domain: System.get_env("HBITS_MAILGUN_DOMAIN"),
-  mailgun_key: System.get_env("HBITS_MAILGUN_API_KEY")
+  mailgun_key: System.get_env("HBITS_MAILGUN_API_KEY"),
+  mailgun_from: System.get_env("HBITS_MAILGUN_FROM")
   
 
 # Configures the endpoint
