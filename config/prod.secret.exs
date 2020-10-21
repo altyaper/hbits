@@ -13,7 +13,10 @@ database_url =
 
 config :hbits, Hbits.Repo,
   ssl: true,
-  url: database_url,
+  hostname: System.get_env("HBITS_DB_HOST"),
+  username: System.get_env("HBITS_DB_USERNAME"),
+  password: System.get_env("HBITS_DB_PASSWORD"),
+  database: System.get_env("HBITS_DB_DATABASE"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
 secret_key_base =
