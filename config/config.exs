@@ -8,7 +8,10 @@
 use Mix.Config
 
 config :hbits,
-  ecto_repos: [Hbits.Repo]
+  ecto_repos: [Hbits.Repo],
+  mailgun_domain: System.get_env("HBITS_MAILGUN_DOMAIN"),
+  mailgun_key: System.get_env("HBITS_MAILGUN_API_KEY")
+  
 
 # Configures the endpoint
 config :hbits, HbitsWeb.Endpoint,
@@ -19,7 +22,7 @@ config :hbits, HbitsWeb.Endpoint,
   live_view: [signing_salt: "noXAU+Ks"]
 
 # Configures Elixir's Logger
-config :logger, :console,
+config  :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
@@ -32,7 +35,9 @@ config :hbits, :pow,
   repo: Hbits.Repo,
   extensions: [PowResetPassword, PowEmailConfirmation],
   controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks,
-  web_module: HbitsWeb
+  web_module: HbitsWeb,
+  mailer_backend: HbitsWeb.Pow.Mailer,
+  web_module_mailer: HbitsWeb
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

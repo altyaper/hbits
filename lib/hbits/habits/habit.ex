@@ -7,7 +7,6 @@ defmodule Hbits.Habits.Habit do
     field :icon, :string
     field :name, :string
     field :user_id, :id
-    belongs_to :users, User
 
     timestamps()
   end

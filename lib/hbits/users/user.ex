@@ -6,7 +6,6 @@ defmodule Hbits.Users.User do
 
   schema "users" do
     pow_user_fields()
-    has_many :habits, Habit
     timestamps()
   end
 
