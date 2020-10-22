@@ -10,12 +10,12 @@
         <h4>No se encontraron habitos</h4>
       </div>
     <% else %>
-      <table>
+      <table class="table">
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Icono</th>
-            <th>Color</th>
+            <th class="text-center">Icono</th>
+            <th class="text-center">Color</th>
 
             <th></th>
           </tr>
@@ -24,10 +24,10 @@
       <%= for habit <- @habits do %>
           <tr>
             <td><%= habit.name %></td>
-            <td><%= habit.icon %></td>
-            <td><%= habit.color %></td>
+            <td class="text-center"><i class="fa fa-<%= habit.icon %>"></i></td>
+            <td class="text-center"><div class="mx-auto color-square" style="background-color: <%= habit.color %>;"></div></td>
 
-            <td>
+            <td class="text-right">
               <span><%= link "Show", to: Routes.habit_path(@conn, :show, habit) %></span>
               <span><%= link "Edit", to: Routes.habit_path(@conn, :edit, habit) %></span>
               <span><%= link "Delete", to: Routes.habit_path(@conn, :delete, habit), method: :delete, data: [confirm: "Are you sure?"] %></span>

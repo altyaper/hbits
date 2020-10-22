@@ -1,7 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1 class="text-center mt-5">My Habits</h1>
+      <h1 class="text-center my-5">Mis habitos</h1>
+      <div class="row">
+        <%= for habit <- @habits do %>
+          <div class="col-4">
+            <div class="habit text-center">
+              <div class="habit-circle text-center d-flex align-items-center justify-content-center mx-auto" style="background-color: <%= habit.color %>">
+                <i class="fa fa-<%= habit.icon %>"></i>
+              </div>
+              <span class="habit-name text-center d-block mt-4"><%= habit.name %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

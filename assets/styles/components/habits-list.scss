@@ -1,0 +1,17 @@
+.color-square {
+    width: 30px;
+    height: 30px;
+}
+
+.habit {
+    .habit-circle {
+      border-radius: 50%;
+      height: 200px;
+      width: 200px;
+      font-size: 60px;
+    }
+    .habit-name {
+      font-weight: bold;
+      font-size: 20px;
+    }
+}
