@@ -10,14 +10,23 @@
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
-    <header>
-      <%= if Pow.Plug.current_user(@conn) do %>
-        <span><%= link "Salir", to: Routes.pow_session_path(@conn, :delete), method: :delete %></span>
-      <% else %>
-        <span><%= link "Registrarse", to: Routes.pow_registration_path(@conn, :new) %></span>
-        <span><%= link "Entrar", to: Routes.pow_session_path(@conn, :new) %></span>
-      <% end %>
+    <header class="mb-small">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="<%= Routes.page_path(@conn, :index) %>">
+          <img src="<%= Routes.static_path(@conn, "/images/logo.svg") %>" width="140" class="d-inline-block align-top" alt="logo hbits" loading="lazy">
+        </a>
+        <div>
+          <%= if Pow.Plug.current_user(@conn) do %>
+            <span><%= link "Habitos", to: Routes.habit_path(@conn, :index), class: "btn btn-secondary" %></span>
+            <span><%= link "Salir", to: Routes.pow_session_path(@conn, :delete), method: :delete, class: "btn btn-primary" %></span>
+          <% else %>
+            <span><%= link "Registrarse", to: Routes.pow_registration_path(@conn, :new), class: "btn btn-primary" %></span>
+            <span><%= link "Entrar", to: Routes.pow_session_path(@conn, :new), class: "btn btn-success" %></span>
+          <% end %>
+        </div>
+      </nav>
     </header>
+    
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>

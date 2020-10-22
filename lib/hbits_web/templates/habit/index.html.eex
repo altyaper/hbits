@@ -1,30 +1,41 @@
-<h1>Listing Habits</h1>
+<div class="row justify-content-center">
+  <div class="col-12 border p-4 rounded mt-5">
+    <div class="d-flex align-items-center mb-5">
+      <h1 class="mr-auto">Lista de habitos</h1>
+      <span><%= link "New Habit", to: Routes.habit_path(@conn, :new), class: "btn btn-primary" %></span>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Icon</th>
-      <th>Color</th>
+    <%= if Enum.empty?(@habits) do %>
+      <div class="empty-list-component p-5 border rounded text-center">
+        <h4>No se encontraron habitos</h4>
+      </div>
+    <% else %>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Icono</th>
+            <th>Color</th>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for habit <- @habits do %>
-    <tr>
-      <td><%= habit.name %></td>
-      <td><%= habit.icon %></td>
-      <td><%= habit.color %></td>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+      <%= for habit <- @habits do %>
+          <tr>
+            <td><%= habit.name %></td>
+            <td><%= habit.icon %></td>
+            <td><%= habit.color %></td>
 
-      <td>
-        <span><%= link "Show", to: Routes.habit_path(@conn, :show, habit) %></span>
-        <span><%= link "Edit", to: Routes.habit_path(@conn, :edit, habit) %></span>
-        <span><%= link "Delete", to: Routes.habit_path(@conn, :delete, habit), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
-
-<span><%= link "New Habit", to: Routes.habit_path(@conn, :new) %></span>
+            <td>
+              <span><%= link "Show", to: Routes.habit_path(@conn, :show, habit) %></span>
+              <span><%= link "Edit", to: Routes.habit_path(@conn, :edit, habit) %></span>
+              <span><%= link "Delete", to: Routes.habit_path(@conn, :delete, habit), method: :delete, data: [confirm: "Are you sure?"] %></span>
+            </td>
+          </tr>
+      <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

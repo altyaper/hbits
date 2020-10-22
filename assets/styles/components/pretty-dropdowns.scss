@@ -1,0 +1,25 @@
+body {
+  .prettydropdown {
+    ul {
+      border:1px solid #ced4da;
+      border-radius: 0.25rem;
+      
+      &:hover {
+        border:1px solid #ced4da !important;
+      }
+
+      &.active {
+       & > li {
+         &:hover {
+          background-color: $primaryColor !important;
+         }
+       }
+      }
+    }
+    &  > ul > li {
+      font-size: 1rem;
+      line-height: 36px !important;
+      height: auto;
+    }
+  }
+}
