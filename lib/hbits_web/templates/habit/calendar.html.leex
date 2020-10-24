@@ -1,0 +1,10 @@
+<div class="calendar mt-4">
+    <%= for {i, month} <- @calendar do %>
+      <div class="column">
+        <div class="calendar__item calendar__item-month calendar__month"><%= month.name %></div>
+        <%= for day <- 1..month.days do %>
+          <div class="calendar__item calendar__item-day calendar__day btn"></div>
+        <% end %>
+      </div>
+    <% end %>
+</div>

@@ -1,12 +1,13 @@
 defmodule Hbits.Habits.Habit do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Hbits.Users.User
 
   schema "habits" do
     field :color, :string
     field :icon, :string
     field :name, :string
-    field :user_id, :id
+    belongs_to :user, User
 
     timestamps()
   end

@@ -4,6 +4,6 @@
 
     <%= render "form.html", Map.put(assigns, :action, Routes.habit_path(@conn, :create)) %>
 
-    <span><%= link "Back", to: Routes.habit_path(@conn, :index), class: "btn" %></span>
+    <span><%= link "Volver", to: Routes.habit_path(@conn, :index), class: "btn" %></span>
 </div>
 </div>

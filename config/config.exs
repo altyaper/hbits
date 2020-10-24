@@ -12,7 +12,7 @@ config :hbits,
   mailgun_domain: System.get_env("HBITS_MAILGUN_DOMAIN"),
   mailgun_key: System.get_env("HBITS_MAILGUN_API_KEY"),
   mailgun_from: System.get_env("HBITS_MAILGUN_FROM")
-  
+
 
 # Configures the endpoint
 config :hbits, HbitsWeb.Endpoint,
@@ -20,7 +20,7 @@ config :hbits, HbitsWeb.Endpoint,
   secret_key_base: "iACoozJR+lef8JarM2sy9p98LxYafWn5mJi+jM4NZxEgRtDuzxKEhXqZf/WZ5B4r",
   render_errors: [view: HbitsWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Hbits.PubSub,
-  live_view: [signing_salt: "noXAU+Ks"]
+  live_view: [signing_salt: "rzItvS7PaJZtiiixDU40S9sWExtpEyfx"]
 
 # Configures Elixir's Logger
 config  :logger, :console,

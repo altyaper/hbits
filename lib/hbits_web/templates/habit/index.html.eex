@@ -2,7 +2,7 @@
   <div class="col-12 border p-4 rounded mt-5">
     <div class="d-flex align-items-center mb-5">
       <h1 class="mr-auto">Lista de habitos</h1>
-      <span><%= link "New Habit", to: Routes.habit_path(@conn, :new), class: "btn btn-primary" %></span>
+      <span><%= link "Nuevo habito", to: Routes.habit_path(@conn, :new), class: "btn btn-primary" %></span>
     </div>
 
     <%= if Enum.empty?(@habits) do %>
@@ -28,9 +28,9 @@
             <td class="text-center"><div class="mx-auto color-square" style="background-color: <%= habit.color %>;"></div></td>
 
             <td class="text-right">
-              <span><%= link "Show", to: Routes.habit_path(@conn, :show, habit) %></span>
-              <span><%= link "Edit", to: Routes.habit_path(@conn, :edit, habit) %></span>
-              <span><%= link "Delete", to: Routes.habit_path(@conn, :delete, habit), method: :delete, data: [confirm: "Are you sure?"] %></span>
+              <span><%= link "Show", to: Routes.habit_path(@conn, :show, habit), class: "btn btn-sm btn-outline-success"%></span>
+              <span><%= link "Edit", to: Routes.habit_path(@conn, :edit, habit), class: "btn btn-sm btn-outline-secondary"%></span>
+              <span><%= link "Delete", to: Routes.habit_path(@conn, :delete, habit), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-sm btn-outline-danger"%></span>
             </td>
           </tr>
       <% end %>

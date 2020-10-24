@@ -1,4 +1,5 @@
 @import "./variables";
+@import "~nprogress/nprogress.css";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
@@ -9,6 +10,7 @@
 @import "./components/empty";
 @import "./components/pretty-dropdowns";
 @import "./components/habits-list";
+@import "./components/calendar";
 
 @import "~bootstrap/scss/bootstrap";
 

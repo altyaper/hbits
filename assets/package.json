@@ -12,8 +12,10 @@
     "jquery": "^3.5.1",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
+    "phoenix_live_view": "file:../deps/phoenix_live_view",
     "popper.js": "^1.16.1",
-    "pretty-dropdowns": "^4.17.0"
+    "pretty-dropdowns": "^4.17.0",
+    "nprogress": "^0.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

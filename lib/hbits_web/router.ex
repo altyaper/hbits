@@ -3,13 +3,18 @@ defmodule HbitsWeb.Router do
   use Pow.Phoenix.Router
   use Pow.Extension.Phoenix.Router,
   extensions: [PowResetPassword, PowEmailConfirmation]
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
-    plug :fetch_flash
+    plug :fetch_live_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+  end
+
+  pipeline :liveview do
+    plug :put_root_layout, {HbitsWeb.LayoutView, :app}
   end
 
   pipeline :protected do
@@ -31,6 +36,13 @@ defmodule HbitsWeb.Router do
     pipe_through [:browser, :protected]
     resources "/habits", HabitController
     get "/", PageController, :index
+  end
+
+  scope "/", HbitsWeb do
+    pipe_through [:browser, :protected, :liveview]
+    resources "/habits", HbitController, only: [:show] do
+      live "calendar", CalendarLive
+    end
   end
 
 

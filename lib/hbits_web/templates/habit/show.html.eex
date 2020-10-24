@@ -1,23 +1,24 @@
-<h1>Show Habit</h1>
+<div class="row justify-content-center">
+  <div class="col-12 border p-4 rounded mt-5">
+    <h1> <%= @habit.name %></h1>
 
-<ul>
+    <ul>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @habit.name %>
-  </li>
+      <li>
+        <strong>Icono:</strong>
+        <%= @habit.icon %>
+      </li>
 
-  <li>
-    <strong>Icon:</strong>
-    <%= @habit.icon %>
-  </li>
+      <li>
+        <strong>Color:</strong>
+        <%= @habit.color %>
+      </li>
 
-  <li>
-    <strong>Color:</strong>
-    <%= @habit.color %>
-  </li>
+    </ul>
 
-</ul>
-
-<span><%= link "Edit", to: Routes.habit_path(@conn, :edit, @habit) %></span>
-<span><%= link "Back", to: Routes.habit_path(@conn, :index) %></span>
+    <div class="d-flex">
+      <span><%= link "Editar", to: Routes.habit_path(@conn, :edit, @habit), class: "btn btn-primary"%></span>
+      <span><%= link "Volver", to: Routes.habit_path(@conn, :index), class: "btn"%></span>
+    </div>
+  </div>
+</div>

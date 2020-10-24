@@ -3,9 +3,12 @@ defmodule Hbits.Users.User do
   use Pow.Ecto.Schema
   use Pow.Extension.Ecto.Schema,
     extensions: [PowResetPassword, PowEmailConfirmation]
+  alias Hbits.Habits.Habit
 
   schema "users" do
     pow_user_fields()
+    has_many :habits, Habit
+
     timestamps()
   end
 

@@ -23,7 +23,7 @@ defmodule Hbits.MixProject do
       extra_applications: [:logger, :runtime_tools]
     ]
   end
-  
+
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
@@ -47,7 +47,9 @@ defmodule Hbits.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:pow, "~> 1.0.21"},
-      {:mailgun, "~> 0.1.2"}
+      {:mailgun, "~> 0.1.2"},
+      {:phoenix_live_view, "~> 0.14.7"},
+      {:floki, ">= 0.27.0", only: :test}
     ]
   end
 
