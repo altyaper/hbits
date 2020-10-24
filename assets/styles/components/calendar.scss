@@ -6,6 +6,17 @@
     text-align: center;
     display: block;
     height: 40px;
+    margin: 1px;
+  }
+  .calendar__left-number {
+    height: 40px;
+    border: 1px solid transparent;
+    border-radius: 0;
+    margin: 1px;
+    font-weight: bold;
+    &:first-child {
+      margin-top: 40px;
+    }
   }
   .calendar__item-day {
     background-color: #F1F1F1;

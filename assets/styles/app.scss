@@ -47,3 +47,18 @@
   display: block;
   margin: -1rem 0 2rem;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.habit-link {
+  color: $text-color;
+  &:hover {
+    color: $text-color;
+    text-decoration: none;
+  }
+}

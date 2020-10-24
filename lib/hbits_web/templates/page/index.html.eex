@@ -5,12 +5,14 @@
       <div class="row">
         <%= for habit <- @habits do %>
           <div class="col-4">
-            <div class="habit text-center">
-              <div class="habit-circle text-center d-flex align-items-center justify-content-center mx-auto" style="background-color: <%= habit.color %>">
-                <i class="fa fa-<%= habit.icon %>"></i>
+            <a href="habits/<%= habit.id %>/calendar" class="habit-link">
+              <div class="habit text-center">
+                <div class="habit-circle text-center d-flex align-items-center justify-content-center mx-auto" style="background-color: <%= habit.color %>">
+                  <i class="fa fa-<%= habit.icon %>"></i>
+                </div>
+                <span class="habit-name text-center d-block mt-4"><%= habit.name %></span>
               </div>
-              <span class="habit-name text-center d-block mt-4"><%= habit.name %></span>
-            </div>
+            </a>
           </div>
         <% end %>
       </div>
