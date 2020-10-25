@@ -62,3 +62,14 @@ footer {
     text-decoration: none;
   }
 }
+
+.eque-line {
+  &:after {
+    border-bottom: 1px solid $light-grey;
+    content: "";
+    width: 10%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+  }
+}

@@ -7,12 +7,12 @@ defmodule HbitsWeb.CalendarLive do
 
   @spec mount(any, any, Phoenix.LiveView.Socket.t()) :: {:ok, any}
   def mount(%{"hbit_id" => hbit_id}, user, socket) do
-    calendar = get_calendar
     if connected?(socket), do: Process.send_after(self(), :update, 30000)
-    {:ok, assign(socket, :calendar, calendar)}
+    habit = Hbits.Habits.get_habit!(hbit_id)
+    {:ok, socket |> assign(:calendar, get_calendar()) |> assign(:habit, habit)}
   end
 
-  def get_calendar() do
+  defp get_calendar() do
     current_year = DateTime.utc_now |> Map.fetch!(:year)
     months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
     Stream.with_index(months, 1) |>
@@ -22,13 +22,10 @@ defmodule HbitsWeb.CalendarLive do
       end)
   end
 
-
-
   @spec handle_event(<<_::104>>, any, any) :: {:noreply, any}
   def handle_event("selected_date", %{"day" => day, "month" => month}, socket) do
     current_year = DateTime.utc_now |> Map.fetch!(:year)
     date = Date.from_iso8601!("#{current_year}-#{String.pad_leading(month, 2, "0")}-#{String.pad_leading(day, 2, "0")}")
-    IO.inspect(date)
     {:noreply, socket}
   end
 
