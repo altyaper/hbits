@@ -9,12 +9,23 @@
   <div class="column">
     <div class="calendar__item calendar__item-month calendar__month"><%= month.name %></div>
     <%= for day <- 1..month.days do %>
-      <div
-        class="calendar__item calendar__item-day calendar__day btn"
-        phx-click="selected_date"
-        phx-value-day="<%= day %>"
-        phx-value-month="<%= month.month_index %>"
-      ></div>
+      <%= if HbitsWeb.HabitView.has_been_selected(month.month_index, day, @matrix) do %>
+        <div
+          class="calendar__item calendar__item-day calendar__day btn calendar_item__selected"
+          phx-click="selected_date"
+          phx-value-day="<%= day %>"
+          phx-value-month="<%= month.month_index %>"
+          phx-value-habit-id="<%= @habit.id %>"
+        ></div>
+      <% else %>
+        <div
+          class="calendar__item calendar__item-day calendar__day btn"
+          phx-click="selected_date"
+          phx-value-day="<%= day %>"
+          phx-value-month="<%= month.month_index %>"
+          phx-value-habit-id="<%= @habit.id %>"
+        ></div>
+      <% end %>
     <% end %>
   </div>
   <% end %>

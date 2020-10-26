@@ -1,6 +1,9 @@
 .calendar {
   width: 100%;
   display: flex;
+  .calendar_item__selected {
+    background-color: yellow !important;
+  }
   .calendar__item {
     padding: 10px 20px;
     text-align: center;

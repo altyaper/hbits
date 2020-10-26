@@ -35,7 +35,7 @@ defmodule Hbits.Habits do
       ** (Ecto.NoResultsError)
 
   """
-  def get_habit!(id), do: Repo.get!(Habit, id)
+  def get_habit!(id), do: Repo.get!(Habit, id) |> Repo.preload(:calendar_dates)
 
   @doc """
   Creates a habit.
