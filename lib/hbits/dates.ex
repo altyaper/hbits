@@ -14,7 +14,7 @@ defmodule Hbits.Dates do
 
   def get_date!(id), do: Repo.get!(Date, id)
 
-  def create_habit(attrs \\ %{}) do
+  def create_date(attrs \\ %{}) do
     %Date{}
     |> Date.changeset(attrs)
     |> Repo.insert()

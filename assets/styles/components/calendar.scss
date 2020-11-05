@@ -1,9 +1,6 @@
 .calendar {
   width: 100%;
   display: flex;
-  .calendar_item__selected {
-    background-color: yellow !important;
-  }
   .calendar__item {
     padding: 10px 20px;
     text-align: center;
@@ -26,13 +23,20 @@
     border: 1px solid transparent;
     border-radius: 0;
     margin: 1px;
-    &:hover {
-      background-color: rgba($light-grey, 0.7);
-      border: 1px solid $primaryColor;
-    }
+  }
+  .calendar_item__today {
+    background-color: rgba($light-grey, 0.7);
+    border: 1px solid $primaryColor;
+  }
+  .calendar_item__past {
+    background-color: #f7f7f7;
+    border: 1px solid #f3f3f3;
   }
   .calendar__month {
     background-color: $primaryColor;
     color: $white;
+  }
+  .calendar_item__selected {
+    background-color: $secondaryColor;
   }
 }
