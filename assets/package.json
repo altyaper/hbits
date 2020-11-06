@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "deploy": "webpack --mode production",
+    "heroku-prebuild": "npm install --dev",
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {

@@ -3,9 +3,6 @@ defmodule HbitsWeb.CalendarLive do
 
   alias Hbits.Dates
   alias Hbits.Habits
-  alias Hbits.Util.DateUtil
-
-  require IEx;
 
   def render(assigns) do
     Phoenix.View.render(HbitsWeb.HabitView, "calendar.html", assigns)
@@ -25,7 +22,6 @@ defmodule HbitsWeb.CalendarLive do
     }
   end
 
-
   @spec handle_event(<<_::104>>, any, any) :: {:noreply, any}
   def handle_event("selected_date", %{"day" => day, "month" => month, "habit-id" => habit_id}, socket) do
     current_year = DateTime.utc_now |> Map.fetch!(:year)
@@ -36,17 +32,16 @@ defmodule HbitsWeb.CalendarLive do
         habit = Habits.get_habit!(habit_id)
         dates = Map.fetch!(habit, :calendar_dates)
           |> get_matrix_calendar
-        matrix = get_matrix |> matrix_with_classes(dates)
+        matrix = get_matrix() |> matrix_with_classes(dates)
         {:noreply, assign(socket, :matrix, matrix)}
 
-      {:error, %Ecto.Changeset{} = changeset} ->
+      {:error, _changeset} ->
         {:noreply, socket}
     end
   end
 
   @spec handle_info(:done | :update, any) :: {:noreply, any}
   def handle_info(:done, socket) do
-    IO.inspect("DOOOONE")
     {:noreply, socket}
   end
 
