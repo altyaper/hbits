@@ -20,6 +20,13 @@
           <select class="nice-select" name="habit[icon]">
             <option value="tint" data-prefix="<i class='fa fa-tint'></i>">Water</option>
             <option value="dumbbell" data-prefix="<i class='fa fa-dumbbell'></i>">Gym</option>
+            <option value="carrot" data-prefix="<i class='fa fa-carrot'></i>">Food</option>
+            <option value="clock" data-prefix="<i class='fa fa-clock'></i>">Clock</option>
+            <option value="calendar" data-prefix="<i class='fa fa-calendar'></i>">Calendar</option>
+            <option value="phone" data-prefix="<i class='fa fa-phone'></i>">Phone</option>
+            <option value="user-friends" data-prefix="<i class='fa fa-user-friends'></i>">Friends</option>
+            <option value="video" data-prefix="<i class='fa fa-video'></i>">Video</option>
+            <option value="envelope" data-prefix="<i class='fa fa-envelope'></i>">Envelope</option>
           </select>
         </div>
       
