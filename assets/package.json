@@ -16,7 +16,9 @@
     "phoenix_live_view": "file:../deps/phoenix_live_view",
     "popper.js": "^1.16.1",
     "pretty-dropdowns": "^4.17.0",
-    "nprogress": "^0.2.0"
+    "nprogress": "^0.2.0",
+    "webpack": "4.41.5",
+    "webpack-cli": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -31,7 +33,5 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "sass-loader": "^8.0.2",
     "terser-webpack-plugin": "^2.3.2",
-    "webpack": "4.41.5",
-    "webpack-cli": "^3.3.2"
   }
 }
