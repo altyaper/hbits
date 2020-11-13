@@ -16,6 +16,8 @@ defmodule HbitsWeb.HabitController do
 
   @spec create(Plug.Conn.t(), map) :: Plug.Conn.t()
   def create(conn, %{"habit" => habit_params}) do
+    user_id = conn.assigns.current_user.id
+    habit_params = Map.put(habit_params, "user_id", user_id)
     case Habits.create_habit(habit_params) do
       {:ok, habit} ->
         conn

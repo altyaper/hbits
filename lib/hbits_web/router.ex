@@ -41,7 +41,7 @@ defmodule HbitsWeb.Router do
   scope "/", HbitsWeb do
     pipe_through [:browser, :protected, :liveview]
     resources "/habits", HbitController, only: [:show] do
-      live "calendar", CalendarLive
+      live "/calendar", CalendarLive
     end
   end
 

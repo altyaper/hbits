@@ -21,6 +21,10 @@ defmodule Hbits.Habits do
     Repo.all(Habit)
   end
 
+  def list_habits_by_user(user_id) do
+    Repo.all(from u in Habit, where: u.user_id == ^user_id)
+  end
+
   @doc """
   Gets a single habit.
 

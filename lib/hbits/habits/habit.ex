@@ -17,7 +17,7 @@ defmodule Hbits.Habits.Habit do
   @doc false
   def changeset(habit, attrs) do
     habit
-    |> cast(attrs, [:name, :icon, :color])
-    |> validate_required([:name, :icon, :color])
+    |> cast(attrs, [:name, :icon, :color, :user_id])
+    |> validate_required([:name, :icon, :color, :user_id])
   end
 end

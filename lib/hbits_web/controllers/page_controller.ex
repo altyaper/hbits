@@ -3,7 +3,8 @@ defmodule HbitsWeb.PageController do
   alias Hbits.Habits
 
   def index(conn, _params) do
-    habits = Habits.list_habits()
+    user_id = conn.assigns.current_user.id
+    habits = Habits.list_habits_by_user(user_id)
     render(conn, "index.html", habits: habits)
   end
 end

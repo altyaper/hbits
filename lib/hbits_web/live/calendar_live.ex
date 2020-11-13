@@ -119,7 +119,6 @@ defmodule HbitsWeb.CalendarLive do
     put_in(matrix[current_month][:days][current_day], [ "calendar_item__today" | matrix[current_month][:days][current_day]])
   end
 
-
   def add_selected_class(matrix, map) do
     map
     |> Enum.reduce(matrix, fn {month_index, days_list}, outer_acc_matrix ->

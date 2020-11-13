@@ -29,7 +29,6 @@
             <option value="envelope" data-prefix="<i class='fa fa-envelope'></i>">Envelope</option>
           </select>
         </div>
-      
         <%= error_tag f, :icon %>
       </div>
     </div>

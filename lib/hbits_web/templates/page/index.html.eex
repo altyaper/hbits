@@ -3,6 +3,14 @@
     <div class="col-md-12">
       <h1 class="text-center my-5">Mis habitos</h1>
       <div class="row">
+       <%= if Enum.empty?(@habits) do %>
+        <div class='col-12'>
+          <div class="empty-list-component p-5 border rounded text-center">
+            <h4>No se encontraron habitos</h4>
+            <span><%= link "Nuevo habito", to: Routes.habit_path(@conn, :new), class: "btn btn-primary" %></span>
+          </div>
+        </div>
+        <% end %>
         <%= for habit <- @habits do %>
           <div class="col-4">
             <a href="habits/<%= habit.id %>/calendar" class="habit-link">
